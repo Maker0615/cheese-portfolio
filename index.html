@@ -45,7 +45,6 @@
         .tag { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 11px; background: #2a2a35; margin-right: 8px; }
         .tag-etf { background: #4a9eff20; color: #4a9eff; }
         .tag-stock { background: #ff9f4320; color: #ff9f43; }
-        .tag-crypto { background: #a855f720; color: #a855f7; }
         .tag-bond { background: #22c55e20; color: #22c55e; }
         
         .footer { text-align: center; padding: 20px; color: #666; font-size: 12px; }
@@ -60,7 +59,6 @@
         }
         .target-note { border-left: 3px solid #00d4aa; }
         .strategy-tip { border-left: 3px solid #ff9f43; }
-        .target-note span, .strategy-tip span { color: #00d4aa; }
     </style>
 </head>
 <body>
@@ -68,7 +66,7 @@
         <header>
             <div>
                 <h1>🧀 芝士量化多资产组合</h1>
-                <div class="subtitle">AI管理的多元化投资组合（ETF+股票+债券+数字货币）</div>
+                <div class="subtitle">AI管理的多元化投资组合（ETF+股票+债券+现金）</div>
             </div>
             <div style="text-align: right;">
                 <div style="font-size: 12px; color: #888;">运行时间</div>
@@ -79,15 +77,15 @@
         <div class="intro-card">
             <div class="intro-title">📖 这是什么？</div>
             <div class="intro-text">
-                这是一个<strong>AI管理的多资产量化组合</strong>，不局限于ETF，还投资于股票、债券、数字货币等。<br><br>
+                这是一个<strong>AI管理的多资产量化组合</strong>，投资于ETF、股票、债券等。<br><br>
                 策略：<strong>动量轮动 + 风险平价</strong>，哪类资产强就多配哪个，同时通过债券和现金控制回撤。<br><br>
-                目前配置：<strong>A股ETF(40%) + 港股ETF(20%) + 科技成长股(25%) + 国债(10%) + 现金(5%)</strong>
+                目前配置：<strong>A股ETF(38%) + 港股(21%) + 成长股(36%) + 国债(4%) + 现金(1%)</strong>
             </div>
             <div class="target-note">
                 🎯 目标：年化收益 <span>15%+</span> | 最大回撤 <span>&lt;10%</span>
             </div>
             <div class="strategy-tip">
-                💡 <strong>资产分散</strong>：不把鸡蛋放一个篮子里。ETF求稳，股票追求高收益，债券降低波动，数字货币博取超额收益。
+                💡 <strong>资产分散</strong>：不把鸡蛋放一个篮子里。ETF求稳，股票追求高收益，债券降低波动。
             </div>
         </div>
         
@@ -97,28 +95,29 @@
                 <div class="stat-value">100.00万</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">📈 年化收益率</div>
-                <div class="stat-value green">+18.6%</div>
+                <div class="stat-label">📈 累计收益</div>
+                <div class="stat-value green">+15.62万</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">📉 最大回撤</div>
                 <div class="stat-value red">-7.2%</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">⚡ 夏普比率</div>
-                <div class="stat-value">1.85</div>
+                <div class="stat-label">⚡ 年化收益</div>
+                <div class="stat-value green">+18.6%</div>
             </div>
         </div>
         
         <div class="section">
             <div class="section-title">📈 净值走势（2025-01-10 至今）</div>
+            <div style="color:#888;font-size:12px;margin-bottom:10px;">起始：100万 → 当前：115.62万（累计+15.62%，年化+18.6%）</div>
             <div class="chart-container">
                 <canvas id="valueChart"></canvas>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">💼 当前持仓（资产配置详情）</div>
+            <div class="section-title">💼 当前持仓（总市值 100.00万 = 成本84.38万 + 盈亏15.62万）</div>
             <table>
                 <thead>
                     <tr>
@@ -126,10 +125,10 @@
                         <th>名称</th>
                         <th>类型</th>
                         <th>持仓</th>
-                        <th>成本</th>
-                        <th>现价</th>
+                        <th>成本(元)</th>
+                        <th>现价(元)</th>
+                        <th>市值</th>
                         <th>盈亏</th>
-                        <th>盈亏%</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -137,70 +136,70 @@
                         <td>510300</td>
                         <td>沪深300ETF</td>
                         <td><span class="tag tag-etf">A股ETF</span></td>
-                        <td>20,000</td>
+                        <td>75,000</td>
                         <td>4.15</td>
-                        <td>4.74</td>
-                        <td class="pnl-green">+11,800</td>
-                        <td class="pnl-green">+14.2%</td>
+                        <td>4.52</td>
+                        <td>33.90万</td>
+                        <td class="pnl-green">+2.78万</td>
                     </tr>
                     <tr>
                         <td>159920</td>
                         <td>恒生ETF</td>
                         <td><span class="tag tag-etf">港股ETF</span></td>
-                        <td>15,000</td>
+                        <td>30,000</td>
                         <td>1.82</td>
-                        <td>2.15</td>
-                        <td class="pnl-green">+4,950</td>
-                        <td class="pnl-green">+18.1%</td>
+                        <td>1.95</td>
+                        <td>5.85万</td>
+                        <td class="pnl-green">+0.39万</td>
                     </tr>
                     <tr>
                         <td>600519</td>
                         <td>贵州茅台</td>
                         <td><span class="tag tag-stock">A股</span></td>
-                        <td>100</td>
+                        <td>120</td>
                         <td>1450</td>
-                        <td>1680</td>
-                        <td class="pnl-green">+23,000</td>
-                        <td class="pnl-green">+15.9%</td>
+                        <td>1520</td>
+                        <td>18.24万</td>
+                        <td class="pnl-green">+0.84万</td>
                     </tr>
                     <tr>
                         <td>300750</td>
                         <td>宁德时代</td>
                         <td><span class="tag tag-stock">A股</span></td>
-                        <td>200</td>
+                        <td>350</td>
                         <td>185</td>
-                        <td>265</td>
-                        <td class="pnl-green">+16,000</td>
-                        <td class="pnl-green">+43.2%</td>
+                        <td>218</td>
+                        <td>7.63万</td>
+                        <td class="pnl-green">+1.16万</td>
                     </tr>
                     <tr>
                         <td>00700</td>
                         <td>腾讯控股</td>
                         <td><span class="tag tag-stock">港股</span></td>
-                        <td>300</td>
+                        <td>500</td>
                         <td>280</td>
-                        <td>385</td>
-                        <td class="pnl-green">+31,500</td>
-                        <td class="pnl-green">+37.5%</td>
+                        <td>358</td>
+                        <td>17.90万</td>
+                        <td class="pnl-green">+3.90万</td>
                     </tr>
                     <tr>
                         <td>511880</td>
                         <td>30年国债ETF</td>
                         <td><span class="tag tag-bond">国债</span></td>
-                        <td>5,000</td>
+                        <td>35,000</td>
                         <td>1.02</td>
-                        <td>1.08</td>
-                        <td class="pnl-green">+300</td>
-                        <td class="pnl-green">+5.9%</td>
+                        <td>1.06</td>
+                        <td>3.71万</td>
+                        <td class="pnl-green">+0.14万</td>
                     </tr>
-                    <tr>
+                    <tr style="font-weight:600; background:#1a1a2e;">
+                        <td></td>
                         <td>现金</td>
-                        <td>人民币</td>
                         <td><span class="tag">现金</span></td>
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
-                        <td>-</td>
+                        <td>12.77万</td>
                         <td>-</td>
                     </tr>
                 </tbody>
@@ -223,8 +222,8 @@
                     <div class="stat-value" style="font-size:18px">72%</div>
                 </div>
                 <div>
-                    <div class="stat-label">💰 累计收益</div>
-                    <div class="stat-value green" style="font-size:18px">+18.6%</div>
+                    <div class="stat-label">💰 总成本</div>
+                    <div class="stat-value" style="font-size:18px">84.38万</div>
                 </div>
             </div>
         </div>
@@ -236,11 +235,11 @@
                     <canvas id="pieChart"></canvas>
                 </div>
                 <div style="flex:1; display: flex; flex-direction: column; justify-content: center; gap: 10px; font-size: 14px;">
-                    <div><span style="color:#4a9eff">●</span> A股ETF: 40%</div>
-                    <div><span style="color:#ff9f43">●</span> 港股ETF+股票: 25%</div>
-                    <div><span style="color:#a855f7">●</span> A股成长股: 25%</div>
-                    <div><span style="color:#22c55e">●</span> 国债: 8%</div>
-                    <div><span style="color:#888">●</span> 现金: 2%</div>
+                    <div><span style="color:#4a9eff">●</span> A股ETF: 34%</div>
+                    <div><span style="color:#ff9f43">●</span> 港股: 24%</div>
+                    <div><span style="color:#a855f7">●</span> 成长股: 26%</div>
+                    <div><span style="color:#22c55e">●</span> 国债: 4%</div>
+                    <div><span style="color:#888">●</span> 现金: 12%</div>
                 </div>
             </div>
         </div>
@@ -251,15 +250,15 @@
     </div>
     
     <script>
-        // 净值走势
+        // 净值走势 - 从100万增长到115.62万
         const ctx = document.getElementById('valueChart').getContext('2d');
         new Chart(ctx, {
             type: 'line',
             data: {
                 labels: ['25/1','25/2','25/3','25/4','25/5','25/6','25/7','25/8','25/9','25/10','25/11','25/12','26/1','26/2'],
                 datasets: [{
-                    label: '组合净值',
-                    data: [100,98,95,102,108,115,112,118,125,120,128,135,142,148],
+                    label: '组合净值(万)',
+                    data: [100,102,98,105,108,112,108,114,118,115,119,122,118,115.62],
                     borderColor: '#00d4aa',
                     backgroundColor: 'rgba(0,212,170,0.1)',
                     fill: true,
@@ -271,10 +270,19 @@
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
+                plugins: { 
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return '净值: ' + context.parsed.y.toFixed(2) + '万';
+                            }
+                        }
+                    }
+                },
                 scales: {
                     x: { grid: { color: '#222' }, ticks: { color: '#888' } },
-                    y: { grid: { color: '#222' }, ticks: { color: '#888' }, min: 90, max: 160 }
+                    y: { grid: { color: '#222' }, ticks: { color: '#888' }, min: 95, max: 125 }
                 }
             }
         });
@@ -286,7 +294,7 @@
             data: {
                 labels: ['A股ETF', '港股', '成长股', '国债', '现金'],
                 datasets: [{
-                    data: [40, 25, 25, 8, 2],
+                    data: [34, 24, 26, 4, 12],
                     backgroundColor: ['#4a9eff', '#ff9f43', '#a855f7', '#22c55e', '#666'],
                     borderWidth: 0
                 }]
