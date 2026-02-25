@@ -62,12 +62,12 @@
                 <div class="stat-value up">+28.2%</div>
             </div>
             <div class="stat-card">
-                <div class="stat-label">📉 最大回撤</div>
-                <div class="stat-value down">-7.2%</div>
-            </div>
-            <div class="stat-card">
                 <div class="stat-label">⚡ 年化收益</div>
                 <div class="stat-value up">+3.5%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">📉 最大回撤</div>
+                <div class="stat-value down">-7.2%</div>
             </div>
         </div>
         
@@ -94,6 +94,7 @@
                         <th>成本(元)</th>
                         <th>现价(元)</th>
                         <th>市值</th>
+                        <th>占比</th>
                         <th>盈亏</th>
                     </tr>
                 </thead>
@@ -106,6 +107,7 @@
                         <td>4.15</td>
                         <td>4.52</td>
                         <td>33.90万</td>
+                        <td>33.9%</td>
                         <td class="pnl-up">+2.78万</td>
                     </tr>
                     <tr>
@@ -116,6 +118,7 @@
                         <td>1.82</td>
                         <td>1.95</td>
                         <td>5.85万</td>
+                        <td>5.9%</td>
                         <td class="pnl-up">+0.39万</td>
                     </tr>
                     <tr>
@@ -126,6 +129,7 @@
                         <td>1450</td>
                         <td>1520</td>
                         <td>18.24万</td>
+                        <td>18.2%</td>
                         <td class="pnl-up">+0.84万</td>
                     </tr>
                     <tr>
@@ -136,6 +140,7 @@
                         <td>185</td>
                         <td>218</td>
                         <td>7.63万</td>
+                        <td>7.6%</td>
                         <td class="pnl-up">+1.16万</td>
                     </tr>
                     <tr>
@@ -146,6 +151,7 @@
                         <td>280</td>
                         <td>358</td>
                         <td>17.90万</td>
+                        <td>17.9%</td>
                         <td class="pnl-up">+3.90万</td>
                     </tr>
                     <tr>
@@ -156,6 +162,7 @@
                         <td>1.02</td>
                         <td>1.06</td>
                         <td>3.71万</td>
+                        <td>3.7%</td>
                         <td class="pnl-up">+0.14万</td>
                     </tr>
                     <tr style="font-weight:600; background:#1a1a2e;">
@@ -166,6 +173,7 @@
                         <td>-</td>
                         <td>-</td>
                         <td>12.77万</td>
+                        <td>12.8%</td>
                         <td>-</td>
                     </tr>
                 </tbody>
@@ -184,8 +192,8 @@
                     <div class="stat-value" style="font-size:16px">6年+</div>
                 </div>
                 <div>
-                    <div class="stat-label">📋 交易次数</div>
-                    <div class="stat-value" style="font-size:16px">328次</div>
+                    <div class="stat-label">🔄 年换手率</div>
+                    <div class="stat-value" style="font-size:16px">320%</div>
                 </div>
                 <div>
                     <div class="stat-label">🎯 胜率</div>
@@ -194,22 +202,6 @@
                 <div>
                     <div class="stat-label">📐 起始净值</div>
                     <div class="stat-value" style="font-size:16px">1.00</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <div class="section-title">🥧 资产配置比例</div>
-            <div style="display: flex; gap: 20px; height: 200px;">
-                <div style="flex:1">
-                    <canvas id="pieChart"></canvas>
-                </div>
-                <div style="flex:1; display: flex; flex-direction: column; justify-content: center; gap: 10px; font-size: 14px;">
-                    <div><span style="color:#4a9eff">●</span> A股ETF: 34%</div>
-                    <div><span style="color:#ff9f43">●</span> 港股: 24%</div>
-                    <div><span style="color:#a855f7">●</span> 成长股: 26%</div>
-                    <div><span style="color:#22c55e">●</span> 国债: 4%</div>
-                    <div><span style="color:#888">●</span> 现金: 12%</div>
                 </div>
             </div>
         </div>
@@ -275,25 +267,6 @@
                         max: 1.5 
                     }
                 }
-            }
-        });
-        
-        // 饼图
-        const pieCtx = document.getElementById('pieChart').getContext('2d');
-        new Chart(pieCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['A股ETF', '港股', '成长股', '国债', '现金'],
-                datasets: [{
-                    data: [34, 24, 26, 4, 12],
-                    backgroundColor: ['#4a9eff', '#ff9f43', '#a855f7', '#22c55e', '#666'],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } }
             }
         });
     </script>
