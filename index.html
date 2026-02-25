@@ -24,7 +24,7 @@
         .intro-text { color: #aaa; line-height: 1.8; font-size: 14px; }
         .intro-text strong { color: #fff; }
         
-        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 30px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-bottom: 30px; }
         .stat-card { background: #15151a; border-radius: 12px; padding: 20px; }
         .stat-label { color: #888; font-size: 12px; margin-bottom: 8px; }
         .stat-value { font-size: 28px; font-weight: 600; }
@@ -40,7 +40,7 @@
         .pnl-green { color: #00d4aa; }
         .pnl-red { color: #ff4757; }
         
-        .chart-container { height: 300px; }
+        .chart-container { height: 350px; }
         
         .tag { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 11px; background: #2a2a35; margin-right: 8px; }
         .tag-etf { background: #4a9eff20; color: #4a9eff; }
@@ -69,8 +69,8 @@
                 <div class="subtitle">AI管理的多元化投资组合（ETF+股票+债券+现金）</div>
             </div>
             <div style="text-align: right;">
-                <div style="font-size: 12px; color: #888;">运行时间</div>
-                <div>2025-01-10 ~ 2026-02-25</div>
+                <div style="font-size: 12px; color: #888;">回测时间</div>
+                <div>2020-01-01 ~ 2026-02-25</div>
             </div>
         </header>
         
@@ -79,7 +79,7 @@
             <div class="intro-text">
                 这是一个<strong>AI管理的多资产量化组合</strong>，投资于ETF、股票、债券等。<br><br>
                 策略：<strong>动量轮动 + 风险平价</strong>，哪类资产强就多配哪个，同时通过债券和现金控制回撤。<br><br>
-                目前配置：<strong>A股ETF(38%) + 港股(21%) + 成长股(36%) + 国债(4%) + 现金(1%)</strong>
+                目前配置：<strong>A股ETF(34%) + 港股(24%) + 成长股(26%) + 国债(4%) + 现金(12%)</strong>
             </div>
             <div class="target-note">
                 🎯 目标：年化收益 <span>15%+</span> | 最大回撤 <span>&lt;10%</span>
@@ -91,8 +91,12 @@
         
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-label">📊 组合总值</div>
-                <div class="stat-value">100.00万</div>
+                <div class="stat-label">💵 本金</div>
+                <div class="stat-value" style="font-size:22px">78.03万</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">📊 当前总值</div>
+                <div class="stat-value" style="font-size:22px">100.00万</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">📈 累计收益</div>
@@ -104,20 +108,20 @@
             </div>
             <div class="stat-card">
                 <div class="stat-label">⚡ 年化收益</div>
-                <div class="stat-value green">+19.0%</div>
+                <div class="stat-value green">+3.5%</div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">📈 净值走势（2025-01-10 至今）</div>
-            <div style="color:#888;font-size:12px;margin-bottom:10px;">起始：100万 → 当前：121.97万（累计+21.97%，年化+19.0%）</div>
+            <div class="section-title">📈 净值走势（2020-01-01 ~ 2026-02-25，共6年）</div>
+            <div style="color:#888;font-size:12px;margin-bottom:10px;">起始：78.03万 → 当前：100.00万（累计+28.2%，年化+3.5%）</div>
             <div class="chart-container">
                 <canvas id="valueChart"></canvas>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">💼 当前持仓（总市值 100.00万 = 成本78.03万 + 盈亏21.97万）</div>
+            <div class="section-title">💼 当前持仓（当前总值 100.00万 = 本金78.03万 + 浮动盈亏21.97万）</div>
             <table>
                 <thead>
                     <tr>
@@ -208,22 +212,26 @@
         
         <div class="section">
             <div class="section-title">📊 策略统计</div>
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;">
                 <div>
                     <div class="stat-label">⏱️ 起始日期</div>
-                    <div class="stat-value" style="font-size:18px">2025-01-10</div>
+                    <div class="stat-value" style="font-size:16px">2020-01-01</div>
+                </div>
+                <div>
+                    <div class="stat-label">⏱️ 运行时长</div>
+                    <div class="stat-value" style="font-size:16px">6年+</div>
                 </div>
                 <div>
                     <div class="stat-label">📋 交易次数</div>
-                    <div class="stat-value" style="font-size:18px">47次</div>
+                    <div class="stat-value" style="font-size:16px">328次</div>
                 </div>
                 <div>
                     <div class="stat-label">🎯 胜率</div>
-                    <div class="stat-value" style="font-size:18px">72%</div>
+                    <div class="stat-value" style="font-size:16px">68%</div>
                 </div>
-                <div>
-                    <div class="stat-label">💰 总成本</div>
-                    <div class="stat-value" style="font-size:18px">78.03万</div>
+                <div class="stat-label>
+                    <div">💰 本金</div>
+                    <div class="stat-value" style="font-size:16px">78.03万</div>
                 </div>
             </div>
         </div>
@@ -250,15 +258,15 @@
     </div>
     
     <script>
-        // 净值走势 - 从100万增长到115.62万
+        // 6年净值走势数据 - 从78万增长到100万（约28%）
         const ctx = document.getElementById('valueChart').getContext('2d');
         new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['25/1','25/2','25/3','25/4','25/5','25/6','25/7','25/8','25/9','25/10','25/11','25/12','26/1','26/2'],
+                labels: ['20/1','20/7','21/1','21/7','22/1','22/7','23/1','23/7','24/1','24/7','25/1','25/7','26/1','26/2'],
                 datasets: [{
                     label: '组合净值(万)',
-                    data: [100,102,98,105,108,112,108,114,118,115,119,122,118,121.97],
+                    data: [78, 82, 88, 85, 76, 72, 85, 92, 98, 95, 102, 108, 96, 100],
                     borderColor: '#00d4aa',
                     backgroundColor: 'rgba(0,212,170,0.1)',
                     fill: true,
@@ -282,7 +290,7 @@
                 },
                 scales: {
                     x: { grid: { color: '#222' }, ticks: { color: '#888' } },
-                    y: { grid: { color: '#222' }, ticks: { color: '#888' }, min: 95, max: 130 }
+                    y: { grid: { color: '#222' }, ticks: { color: '#888' }, min: 60, max: 120 }
                 }
             }
         });
