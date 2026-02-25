@@ -58,6 +58,16 @@
             color: #888;
         }
         .target-note span { color: #00d4aa; }
+
+        .strategy-tip {
+            background: #1a1a2e;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #888;
+            border-left: 3px solid #00d4aa;
+        }
     </style>
 </head>
 <body>
@@ -68,8 +78,8 @@
                 <div class="subtitle">AI管理的ETF量化投资组合</div>
             </div>
             <div style="text-align: right;">
-                <div style="font-size: 12px; color: #888;">最后更新</div>
-                <div>2026-02-25</div>
+                <div style="font-size: 12px; color: #888;">运行时间</div>
+                <div>2025-01-10 ~ 2026-02-25</div>
             </div>
         </header>
         
@@ -83,6 +93,9 @@
             </div>
             <div class="target-note">
                 🎯 目标：年化收益 <span>15%</span> | 最大回撤 <span>&lt;10%</span>
+            </div>
+            <div class="strategy-tip">
+                💡 <strong>为什么买ETF？</strong> ETF风险较低，适合追求稳健收益。目前模拟盘用的是<strong>低估买入、高估卖出</strong>的网格策略。
             </div>
         </div>
         
@@ -106,7 +119,7 @@
         </div>
         
         <div class="section">
-            <div class="section-title">📈 净值走势（模拟盘资金变化）</div>
+            <div class="section-title">📈 净值走势（2025-01-10 至今）</div>
             <div class="chart-container">
                 <canvas id="valueChart"></canvas>
             </div>
@@ -162,8 +175,8 @@
             <div class="section-title">📊 策略统计</div>
             <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
                 <div>
-                    <div class="stat-label">⏱️ 运行天数</div>
-                    <div class="stat-value">420天</div>
+                    <div class="stat-label">⏱️ 起始日期</div>
+                    <div class="stat-value">2025-01-10</div>
                 </div>
                 <div>
                     <div class="stat-label">📋 交易次数</div>
@@ -190,7 +203,7 @@
         new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['第1月','第2月','第3月','第4月','第5月','第6月','第7月','第8月','第9月','第10月','第11月','第12月','第13月','第14月'],
+                labels: ['25/1','25/2','25/3','25/4','25/5','25/6','25/7','25/8','25/9','25/10','25/11','25/12','26/1','26/2'],
                 datasets: [{
                     label: '组合净值',
                     data: [100,102,98,105,108,104,109,106,103,107,110,108,104,105],
